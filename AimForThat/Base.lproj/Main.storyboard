@@ -104,6 +104,9 @@
                                 <state key="normal" title="Volver a empezar">
                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfw-R8-V4X"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-pL-dqN">
                                 <rect key="frame" x="587" y="32" width="129" height="35"/>
@@ -117,6 +120,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="roundLabel" destination="uwv-Ld-9pN" id="Y4k-1H-odV"/>
+                        <outlet property="scoreLabel" destination="kcG-GI-A90" id="EyE-pI-tf9"/>
                         <outlet property="slider" destination="uZN-y2-h32" id="4RG-Yr-5CF"/>
                         <outlet property="targetLabel" destination="Wih-MY-DRG" id="kMr-ZF-yTh"/>
                     </connections>
