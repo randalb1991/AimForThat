@@ -12,8 +12,8 @@ class GameViewController: UIViewController {
     
     @IBAction func resetGame(_ sender: UIButton) {
         self.reset()
-        self.startNewRound()
-        self.updateLabels()
+        //self.startNewRound() ahora esta en completion handler del metodo reset
+        //self.updateLabels()
 
     }
     @IBOutlet weak var roundLabel: UILabel!
@@ -58,13 +58,20 @@ class GameViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Genial", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Ok!", style: .default,
+            /*fragemento de código que se ejcutará cuando pulse ok*/
+            handler: {
+                //Porque lo llama la propia acción.
+                action in
+                // Ambos metodos son de la clase UIViewController, mientras que aqui estamos ejecutando algo que esta en el contexto de action, por lo que debemos usar self.
+                self.score += point
+                self.startNewRound()
+                self.updateLabels()
+            })
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        self.score += point
-        self.startNewRound()
-        self.updateLabels()
+
     }
     
     override func viewDidLoad() {
@@ -94,12 +101,21 @@ class GameViewController: UIViewController {
     
     func reset(){
         let alert =  UIAlertController(title: "Juego Reseteado", message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "OK", style: .default , handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default ,
+           handler: {
+                action in
+                self.round = 0
+                self.startNewRound()
+                self.currentValue = 0
+                self.score = 0
+                self.updateLabels()
+            })
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        /* metido ahora como clausura
         self.currentValue = 0
         self.score = 0
-        self.round = 0
+        self.round = 0*/
     }
 }
 
