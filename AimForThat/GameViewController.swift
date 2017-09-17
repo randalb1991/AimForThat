@@ -78,9 +78,34 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         self.startNewRound()
         self.updateLabels()
+        self.setupSlider()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    func setupSlider(){
+        let thumImageNormal = UIImage(named:"SliderThumb-Normal")
+        let thumImageHighlighted = UIImage(named:"SliderThumb-Highlighted")
+        let trackLeftImage = UIImage(named:"SliderTrackLeft")
+        /*La forma de debajo es igual, solo que nombrando directamente
+         la imagen swift ya te crea el el objeto
+         */
+        let trackRightImage = #imageLiteral(resourceName: "SliderTrackRight")
+    
+        //Configuramos los 2 estados del slider(normal y highlighted)
+        self.slider.setThumbImage(thumImageNormal, for: .normal)
+        self.slider.setThumbImage(thumImageHighlighted, for: .highlighted)
 
+        //Configuramos los colores de la barra
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0 , right: 14)
+        //Creamos el track redimensionable con los bordes que se ha indicad en la variable anterior
+        
+        let trackLeftResizable = trackLeftImage?.resizableImage(withCapInsets: insets)
+        let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
+        
+        
+        self.slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        self.slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+    }
     func startNewRound(){
         self.round += 1
         self.targetValue = 1 + Int(arc4random_uniform(UInt32(self.slider.maximumValue)))

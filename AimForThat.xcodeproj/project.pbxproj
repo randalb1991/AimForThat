@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B219E2E11F6EB43600CD4FEC /* AimForThat.html in Resources */ = {isa = PBXBuildFile; fileRef = B219E2E01F6EB2D400CD4FEC /* AimForThat.html */; };
 		B238D4251F54A9EF00394D4C /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238D4241F54A9EF00394D4C /* AboutUsViewController.swift */; };
 		B2B7FA401F4C884800C16322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B7FA3F1F4C884800C16322 /* AppDelegate.swift */; };
 		B2B7FA421F4C884800C16322 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B7FA411F4C884800C16322 /* GameViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B219E2E01F6EB2D400CD4FEC /* AimForThat.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AimForThat.html; sourceTree = "<group>"; };
 		B238D4241F54A9EF00394D4C /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		B2B7FA3C1F4C884800C16322 /* AimForThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AimForThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B7FA3F1F4C884800C16322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				B2B7FA411F4C884800C16322 /* GameViewController.swift */,
 				B238D4241F54A9EF00394D4C /* AboutUsViewController.swift */,
 				B2B7FA431F4C884800C16322 /* Main.storyboard */,
+				B219E2E01F6EB2D400CD4FEC /* AimForThat.html */,
 				B2B7FA461F4C884800C16322 /* Assets.xcassets */,
 				B2B7FA481F4C884800C16322 /* LaunchScreen.storyboard */,
 				B2B7FA4B1F4C884800C16322 /* Info.plist */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B7FA4A1F4C884800C16322 /* LaunchScreen.storyboard in Resources */,
+				B219E2E11F6EB43600CD4FEC /* AimForThat.html in Resources */,
 				B2B7FA471F4C884800C16322 /* Assets.xcassets in Resources */,
 				B2B7FA451F4C884800C16322 /* Main.storyboard in Resources */,
 			);
