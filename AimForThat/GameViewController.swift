@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+//para animaciones
+import QuartzCore
 class GameViewController: UIViewController {
     
     @IBAction func resetGame(_ sender: UIButton) {
@@ -20,10 +21,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var timeLabel: UILabel!
     var currentValue: Int = 0
     var targetValue: Int = 0
     var round: Int = 0
     var score: Int = 0
+    var time: Int = 30
+    var timer: Timer?
     
     @IBAction func sliderMoved(_ sender: UISlider) {
         //Solo puede ser llamado desde un UISlider
@@ -38,9 +42,9 @@ class GameViewController: UIViewController {
         let points = 100 - difference
         */
         
-        let point = (difference > 0) ? 100 - difference : 1000
+        let point = (difference > 0) ? 100 - difference : 200
         let message = """
-        Has marcado \(point) puntos!
+        Sumas \(point) puntos!
         """
         
         let title: String
@@ -49,11 +53,11 @@ class GameViewController: UIViewController {
         case 0:
             title = "Puntuación Perfecta!"
         case 1...5:
-            title = "Puntuación casi perfecta!"
+            title = "Puntuación casi perfecta! Has marcado : \(self.currentValue)"
         case 6...12:
-            title = "No está mal!"
+            title = "No está mal! Has marcado : \(self.currentValue)"
         default:
-            title = "Afina tu punteria"
+            title = "Afina tu punteria! Has marcado : \(self.currentValue)"
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -108,10 +112,18 @@ class GameViewController: UIViewController {
     }
     func startNewRound(){
         self.round += 1
-        self.targetValue = 1 + Int(arc4random_uniform(UInt32(self.slider.maximumValue)))
+        //Ponemos 2 en vez de 1 y el maximo-1 para que nunca toque ni el 1 ni el 100
+        self.targetValue = 2 + Int(arc4random_uniform(UInt32(self.slider.maximumValue-1)))
         self.currentValue = Int(self.slider.maximumValue)/2
         self.slider.value = Float(self.currentValue)
         //setValue(Float(self.currentValue), animated: true)
+        
+        
+        if timer != nil {
+            timer?.invalidate()
+        }
+        //target clase que va a ejecutar ejecutar el metodo que sea
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -122,9 +134,11 @@ class GameViewController: UIViewController {
         self.targetLabel.text = "\(self.targetValue)"
         self.scoreLabel.text = "\(self.score)"
         self.roundLabel.text = "\(self.round)"
+        self.timeLabel.text = "\(self.time)"
     }
     
     func reset(){
+        /*
         let alert =  UIAlertController(title: "Juego Reseteado", message: nil, preferredStyle: .actionSheet)
         let action = UIAlertAction(title: "OK", style: .default ,
            handler: {
@@ -136,11 +150,40 @@ class GameViewController: UIViewController {
                 self.updateLabels()
             })
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-        /* metido ahora como clausura
+         present(alert, animated: true, com:pletion: nil)*/
+        self.animation()
+        self.round = 0
+        self.startNewRound()
         self.currentValue = 0
         self.score = 0
-        self.round = 0*/
+        self.time = 30
+        self.updateLabels()
+    }
+    //Con @objc le indicamos que es un mtodo que puede llamarse por un selector
+    @objc func tick(){
+    //Llamar a este metodo cada segundo
+        self.time -= 1
+        self.timeLabel.text = (self.time > 0) ? "\(self.time)" : "0"
+        if self.time <= 0 {
+            self.timer?.invalidate()
+            let message = "Tu puntuación final es de \(self.score)"
+            let alert = UIAlertController(title: "Tiempo!!", message: message, preferredStyle: .actionSheet)
+            let action = UIAlertAction(title: "Empezar nueva partida", style: .default, handler: {
+                action in
+                self.reset()
+            })
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    func animation(){
+        let transition = CATransition()
+        transition.type = kCATransitionFromTop
+        transition.duration = 1
+        //definimos el ritmo
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        self.view.layer.add(transition, forKey: nil)
     }
 }
 

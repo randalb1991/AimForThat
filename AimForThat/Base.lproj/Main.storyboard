@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,7 +65,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBo-Kn-9Ao">
-                                        <rect key="frame" x="198.33333333333331" y="70" width="319.66666666666669" height="28"/>
+                                        <rect key="frame" x="198.33333333333331" y="85" width="319.66666666666669" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu objetivo es acertar el número:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-uV-gdw">
                                                 <rect key="frame" x="0.0" y="0.0" width="283.33333333333337" height="28"/>
@@ -166,15 +166,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMy-Ff-Y0s">
+                                        <rect key="frame" x="325" y="5" width="66" height="56"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <size key="shadowOffset" width="9" height="-2"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Ytt-KT-Glz" firstAttribute="centerX" secondItem="Wdz-90-zy8" secondAttribute="centerX" id="3tN-Yx-H2V"/>
                                     <constraint firstItem="MOQ-Sp-BS5" firstAttribute="leading" secondItem="Wdz-90-zy8" secondAttribute="leading" constant="50" id="EVU-Zs-nzi"/>
                                     <constraint firstAttribute="trailing" secondItem="3jw-pL-dqN" secondAttribute="trailing" constant="10" id="IuL-bu-vX4"/>
+                                    <constraint firstItem="QMy-Ff-Y0s" firstAttribute="centerX" secondItem="Wdz-90-zy8" secondAttribute="centerX" id="K3B-Oe-iE0"/>
                                     <constraint firstAttribute="trailing" secondItem="Ytt-KT-Glz" secondAttribute="trailing" constant="10" id="OAk-cv-Fcs"/>
+                                    <constraint firstItem="QMy-Ff-Y0s" firstAttribute="top" secondItem="Wdz-90-zy8" secondAttribute="top" constant="5" id="S58-M6-78a"/>
                                     <constraint firstItem="mBo-Kn-9Ao" firstAttribute="centerX" secondItem="Wdz-90-zy8" secondAttribute="centerX" id="WCh-4b-FtC"/>
-                                    <constraint firstItem="mBo-Kn-9Ao" firstAttribute="top" secondItem="Wdz-90-zy8" secondAttribute="top" constant="70" id="e4B-eU-SX3"/>
+                                    <constraint firstItem="mBo-Kn-9Ao" firstAttribute="top" secondItem="Wdz-90-zy8" secondAttribute="top" constant="85" id="e4B-eU-SX3"/>
                                     <constraint firstItem="3jw-pL-dqN" firstAttribute="top" secondItem="Wdz-90-zy8" secondAttribute="top" constant="10" id="f0n-O0-Gmb"/>
                                     <constraint firstItem="wWh-0F-8km" firstAttribute="top" secondItem="Ytt-KT-Glz" secondAttribute="bottom" constant="30" id="gw1-Go-wFA"/>
                                     <constraint firstAttribute="bottom" secondItem="MOQ-Sp-BS5" secondAttribute="bottom" constant="15" id="j0K-Rz-smU"/>
@@ -203,6 +213,7 @@
                             <constraint firstItem="Wdz-90-zy8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekL-lx-Zod"/>
                             <constraint firstItem="MKM-Qc-ocm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q8H-h5-aSv"/>
                             <constraint firstAttribute="bottom" secondItem="Wdz-90-zy8" secondAttribute="bottom" constant="12" id="srs-FA-wVK"/>
+                            <constraint firstItem="Wdz-90-zy8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wAR-4K-CQr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -212,6 +223,7 @@
                         <outlet property="scoreLabel" destination="kcG-GI-A90" id="EyE-pI-tf9"/>
                         <outlet property="slider" destination="uZN-y2-h32" id="4RG-Yr-5CF"/>
                         <outlet property="targetLabel" destination="Wih-MY-DRG" id="kMr-ZF-yTh"/>
+                        <outlet property="timeLabel" destination="QMy-Ff-Y0s" id="KFB-uU-LoY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
