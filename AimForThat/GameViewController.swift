@@ -125,13 +125,16 @@ class GameViewController: UIViewController {
     }
     
     func reset(){
+        //Comprobamos puntuación maxima
+        self.updateMaxScore()
         self.animation()
+        //Reiniciamos las variables del juego
+        
         self.round = 0
         self.startNewRound()
         self.currentValue = 0
         self.score = 0
         self.time = 20
-        self.maxScore = UserDefaults.standard.integer(forKey: "maxScore")
         self.updateLabels()
     }
     //Con @objc le indicamos que es un mtodo que puede llamarse por un selector
@@ -168,7 +171,8 @@ class GameViewController: UIViewController {
     */
         let maxScore = UserDefaults.standard.integer(forKey: "maxScore")
         if self.score > maxScore {
-            UserDefaults.standard.set(self.score, forKey: "maxScore")
+            self.maxScore = self.score
+            UserDefaults.standard.set(self.maxScore, forKey: "maxScore")
         }
         
     }
